@@ -12,30 +12,25 @@ namespace AgeEstimation
 {
     class FaceDetector
     {
-        public Image<Gray, Byte> CropGrayFace(Image<Bgr, Byte> image)
+        static CascadeClassifier face = new CascadeClassifier(@"..\..\config\haarcascade_frontalface_default.xml");
+        static public Image<Gray, Byte> CropGrayFace(Image<Bgr, Byte> image)
         {
-             Image<Gray, Byte> gray = image.Convert<Gray, Byte>(); //Convert it to Grayscale
+            Image<Gray, Byte> gray = image.Convert<Gray, Byte>(); //Convert it to Grayscale
 
-             //normalizes brightness and increases contrast of the image
-             gray._EqualizeHist();
+            //normalizes brightness and increases contrast of the image
+            gray._EqualizeHist();
 
-             //Read the HaarCascade objects
-             HaarCascade face = new HaarCascade(@"..\..\config\haarcascade_frontalface_alt_tree.xml");
+            //Read the HaarCascade objects
+            //CascadeClassifier face = new CascadeClassifier(@"..\..\config\haarcascade_frontalface_default.xml");
 
-             //Detect the faces  from the gray scale image and store the locations as rectangle
-             //The first dimensional is the channel
-             //The second dimension is the index of the rectangle in the specific channel
-             MCvAvgComp[][] facesDetected = gray.DetectHaarCascade(
-                face, 
-                1.1, 
-                10, 
-                Emgu.CV.CvEnum.HAAR_DETECTION_TYPE.DO_CANNY_PRUNING, 
-                new Size(20, 20));
+            Rectangle[] facesDetected = face.DetectMultiScale(gray, 1.2, 10, new Size(50, 50), Size.Empty);
 
+            if (facesDetected.Length == 0)
+                return null;
 
-            MCvAvgComp f = facesDetected[0][0];
+            Rectangle face_rect = facesDetected[0];
             //crop the first face found
-            return gray.Copy(f.rect);
+            return gray.Copy(face_rect);
         }
     }
 }

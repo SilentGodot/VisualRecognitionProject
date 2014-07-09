@@ -6,30 +6,51 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Threading;
 using System.Windows.Forms;
 
 namespace AgeEstimation
 {
     public partial class Form1 : Form
     {
-        private FaceDetector m_faceDetector;
-        private string m_facePath;
+        DataSetManager m_dtManager;
         public Form1()
         {
             InitializeComponent();
 
-            m_faceDetector = new FaceDetector();
-            m_facePath = @"..\..\DataSet\Color_age_30-49_Neutral_bmp\male\TSFWmale47neutral(2).bmp";
-            pictureBox1.ImageLocation = m_facePath;
-            pictureBox1.Refresh();
+            m_dtManager = new DataSetManager(@"..\..\DataSet");
+            m_dtManager.ImageFileProccessedEvent += ImageFileProccessedEventHandler;
+            progressBar.Maximum = m_dtManager.TotalFiles;
+            progressBar.Step = 1;
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        void ImageFileProccessedEventHandler()
         {
-            var ImgToCrop = new Emgu.CV.Image<Emgu.CV.Structure.Bgr, Byte>(m_facePath);
-            var faceImg = m_faceDetector.CropGrayFace(ImgToCrop);
-            Bitmap bmFace = faceImg.ToBitmap();
-            pictureBox1.Image = bmFace;
+            if (progressBar.InvokeRequired)
+                progressBar.Invoke(new ThreadStart(() =>
+                {
+                    progressBar.PerformStep();
+                }));
+            else
+                progressBar.PerformStep();
+
+            if (progressBar.Value == progressBar.Maximum)
+                if (progressLabel.InvokeRequired)
+                    progressLabel.Invoke(new ThreadStart(() =>
+                    {
+                        progressLabel.Text = "Done!";
+                    }));
+                else
+                    progressLabel.Text = "Done!";
+        }
+
+        private void loadDataSetToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            progressLabel.Text = "Loading Data Set...";
+            new Thread(new ThreadStart(() =>
+            {
+                m_dtManager.LoadFromDataDir();
+            })).Start();
         }
     }
 }
