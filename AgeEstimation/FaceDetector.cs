@@ -30,7 +30,7 @@ namespace AgeEstimation
 
             Rectangle face_rect = facesDetected[0];
             //crop the first face found
-            return gray.Copy(face_rect);
+            return gray.Copy(face_rect).Resize(300,300, Emgu.CV.CvEnum.INTER.CV_INTER_CUBIC);
         }
     }
 }
