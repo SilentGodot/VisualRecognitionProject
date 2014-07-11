@@ -54,7 +54,7 @@
             this.testingToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(745, 27);
+            this.menuStrip1.Size = new System.Drawing.Size(808, 27);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -108,9 +108,9 @@
             // progressBar
             // 
             this.progressBar.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.progressBar.Location = new System.Drawing.Point(0, 423);
+            this.progressBar.Location = new System.Drawing.Point(0, 443);
             this.progressBar.Name = "progressBar";
-            this.progressBar.Size = new System.Drawing.Size(745, 17);
+            this.progressBar.Size = new System.Drawing.Size(808, 17);
             this.progressBar.TabIndex = 1;
             // 
             // statusLabel
@@ -118,7 +118,7 @@
             this.statusLabel.AutoSize = true;
             this.statusLabel.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.statusLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.12727F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.statusLabel.Location = new System.Drawing.Point(0, 403);
+            this.statusLabel.Location = new System.Drawing.Point(0, 423);
             this.statusLabel.Name = "statusLabel";
             this.statusLabel.Size = new System.Drawing.Size(43, 20);
             this.statusLabel.TabIndex = 2;
@@ -130,7 +130,7 @@
             this.flowPanel.Dock = System.Windows.Forms.DockStyle.Left;
             this.flowPanel.Location = new System.Drawing.Point(0, 27);
             this.flowPanel.Name = "flowPanel";
-            this.flowPanel.Size = new System.Drawing.Size(342, 376);
+            this.flowPanel.Size = new System.Drawing.Size(342, 396);
             this.flowPanel.TabIndex = 3;
             this.flowPanel.Visible = false;
             // 
@@ -148,7 +148,7 @@
             this.testPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.testPanel.Location = new System.Drawing.Point(342, 27);
             this.testPanel.Name = "testPanel";
-            this.testPanel.Size = new System.Drawing.Size(403, 376);
+            this.testPanel.Size = new System.Drawing.Size(466, 396);
             this.testPanel.TabIndex = 4;
             this.testPanel.Visible = false;
             // 
@@ -157,17 +157,17 @@
             this.testPb.Dock = System.Windows.Forms.DockStyle.Top;
             this.testPb.Location = new System.Drawing.Point(0, 0);
             this.testPb.Name = "testPb";
-            this.testPb.Size = new System.Drawing.Size(403, 349);
+            this.testPb.Size = new System.Drawing.Size(466, 349);
             this.testPb.TabIndex = 0;
             this.testPb.TabStop = false;
             // 
             // resLabel
             // 
             this.resLabel.AutoSize = true;
-            this.resLabel.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.resLabel.BackColor = System.Drawing.SystemColors.Control;
             this.resLabel.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.resLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.78182F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.resLabel.Location = new System.Drawing.Point(0, 352);
+            this.resLabel.Location = new System.Drawing.Point(0, 372);
             this.resLabel.Name = "resLabel";
             this.resLabel.Size = new System.Drawing.Size(133, 24);
             this.resLabel.TabIndex = 1;
@@ -177,7 +177,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(745, 440);
+            this.ClientSize = new System.Drawing.Size(808, 460);
             this.Controls.Add(this.testPanel);
             this.Controls.Add(this.flowPanel);
             this.Controls.Add(this.statusLabel);

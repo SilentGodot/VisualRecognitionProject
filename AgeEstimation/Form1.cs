@@ -30,7 +30,7 @@ namespace AgeEstimation
 
         private void ResetEigenFaces()
         {
-            m_eigenFace = new EigenFaceRecognizer(100, double.PositiveInfinity);
+            m_eigenFace = new EigenFaceRecognizer(120, double.PositiveInfinity);
         }
 
         void ProgressMadeEventHandler()
@@ -46,6 +46,8 @@ namespace AgeEstimation
 
         private async void loadDataSetToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            flowPanel.Visible = testPanel.Visible = false;
+            menuStrip1.Enabled = false;
 
             progressBar.Maximum = m_dtManager.TotalFileCount;
             progressBar.Step = 1;
@@ -58,20 +60,17 @@ namespace AgeEstimation
 
             statusLabel.Text = "Detected and loaded " + m_dtManager.TrainingImages.Count + " faces to database";
 
-            //foreach (var currImg in m_dtManager.TrainingImages)
-            //{
-            //    var currCopy = currImg.Resize(50, 50, Emgu.CV.CvEnum.INTER.CV_INTER_LINEAR);
-            //    var pb = new PictureBox();
-            //    pb.Size = currCopy.Size;
-            //    pb.Image = currCopy.Bitmap;
-            //    flowPanel.Controls.Add(pb);
-            //}
+            menuStrip1.Enabled = true;
         }
 
         private async void singleSliceToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            menuStrip1.Enabled = false;
+            flowPanel.Visible = testPanel.Visible = false;
+
             double errorRate = await AutoTestSlice();
             statusLabel.Text = "Testing Concluded with " + errorRate.ToString("F2") + "% Error Rate.";
+            menuStrip1.Enabled = true;
         }
 
         private Task<double> AutoTestSlice()
@@ -105,6 +104,9 @@ namespace AgeEstimation
 
         private async void tripleSliceToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            menuStrip1.Enabled = false;
+            flowPanel.Visible = testPanel.Visible = false;
+
             int numOfIterations = 3;
             double avgError = 0.0;
 
@@ -116,12 +118,15 @@ namespace AgeEstimation
             avgError /= (double)numOfIterations;
 
             statusLabel.Text = "Testing Concluded with " + avgError.ToString("F2") + "% Avrage Error Rate.";
+            menuStrip1.Enabled = true;
         }
 
         private async void manualTestingToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            menuStrip1.Enabled = false;
             await PrepareForManualTesting();
             flowPanel.Visible = testPanel.Visible = true;
+            menuStrip1.Enabled = true;
         }
 
         private async Task PrepareForManualTesting()

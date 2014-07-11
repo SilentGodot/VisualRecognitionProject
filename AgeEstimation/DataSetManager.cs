@@ -94,9 +94,9 @@ namespace AgeEstimation
 
         public String GetLabel(int index)
         {
-            if (m_labels.Count <= index)
+            if (index == -1 || m_labels.Count <= index)
             {
-                return "Unknown Label";
+                return "Unknown";
             }
 
             return m_labels[index];
@@ -152,12 +152,7 @@ namespace AgeEstimation
             }
         }
 
-        public void RandomizeTestSlice()
-        {
-            RandomizeTestSlice(15.0f);
-        }
-
-        public void RandomizeTestSlice(float slicePrecent)
+        public void RandomizeTestSlice(float slicePrecent = 15.0f)
         {
             m_trainingImages.AddRange(m_testImages);
             m_testImages.Clear();

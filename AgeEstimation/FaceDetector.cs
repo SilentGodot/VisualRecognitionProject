@@ -20,14 +20,15 @@ namespace AgeEstimation
             //normalizes brightness and increases contrast of the image
             gray._EqualizeHist();
 
-            Rectangle[] facesDetected = face.DetectMultiScale(gray, 1.2, 10, new Size(150, 150), new Size(300, 300));
+            Rectangle[] facesDetected = face.DetectMultiScale(gray, 1.2, 10, new Size(200, 200), new Size(320, 320));
 
             if (facesDetected.Length == 0)
                 return null;
 
             Rectangle face_rect = facesDetected[0];
             //crop the first face found
-            return gray.Copy(face_rect).Resize(300,300, Emgu.CV.CvEnum.INTER.CV_INTER_LINEAR);
+            // resizing to 100x100 gives better performance
+            return gray.Copy(face_rect).Resize(100,100, Emgu.CV.CvEnum.INTER.CV_INTER_AREA);
         }
     }
 }
