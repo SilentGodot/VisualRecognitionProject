@@ -13,7 +13,7 @@ namespace AgeEstimation
     {
         public static void Shuffle<T>(this IList<T> list)
         {
-            Random rng = new Random(305321861);
+            Random rng = new Random();
             int n = list.Count;
             while (n > 1)
             {

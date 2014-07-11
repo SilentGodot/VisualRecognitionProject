@@ -20,17 +20,14 @@ namespace AgeEstimation
             //normalizes brightness and increases contrast of the image
             gray._EqualizeHist();
 
-            //Read the HaarCascade objects
-            //CascadeClassifier face = new CascadeClassifier(@"..\..\config\haarcascade_frontalface_default.xml");
-
-            Rectangle[] facesDetected = face.DetectMultiScale(gray, 1.2, 10, new Size(50, 50), Size.Empty);
+            Rectangle[] facesDetected = face.DetectMultiScale(gray, 1.2, 10, new Size(150, 150), new Size(300, 300));
 
             if (facesDetected.Length == 0)
                 return null;
 
             Rectangle face_rect = facesDetected[0];
             //crop the first face found
-            return gray.Copy(face_rect).Resize(300,300, Emgu.CV.CvEnum.INTER.CV_INTER_CUBIC);
+            return gray.Copy(face_rect).Resize(300,300, Emgu.CV.CvEnum.INTER.CV_INTER_LINEAR);
         }
     }
 }

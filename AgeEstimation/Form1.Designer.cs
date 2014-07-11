@@ -1,6 +1,6 @@
 ﻿namespace AgeEstimation
 {
-    partial class Form1
+    partial class AgeEstimator
     {
         /// <summary>
         /// Required designer variable.
@@ -37,7 +37,14 @@
             this.tripleSliceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.progressBar = new System.Windows.Forms.ProgressBar();
             this.statusLabel = new System.Windows.Forms.Label();
+            this.flowPanel = new System.Windows.Forms.FlowLayoutPanel();
+            this.manualTestingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.testPanel = new System.Windows.Forms.Panel();
+            this.testPb = new System.Windows.Forms.PictureBox();
+            this.resLabel = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
+            this.testPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.testPb)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -47,7 +54,7 @@
             this.testingToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(654, 27);
+            this.menuStrip1.Size = new System.Drawing.Size(745, 27);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -62,14 +69,15 @@
             // loadDataSetToolStripMenuItem
             // 
             this.loadDataSetToolStripMenuItem.Name = "loadDataSetToolStripMenuItem";
-            this.loadDataSetToolStripMenuItem.Size = new System.Drawing.Size(196, 24);
-            this.loadDataSetToolStripMenuItem.Text = "Train From DataSet";
+            this.loadDataSetToolStripMenuItem.Size = new System.Drawing.Size(165, 24);
+            this.loadDataSetToolStripMenuItem.Text = "Load DataSet";
             this.loadDataSetToolStripMenuItem.Click += new System.EventHandler(this.loadDataSetToolStripMenuItem_Click);
             // 
             // testingToolStripMenuItem
             // 
             this.testingToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.automaticTestingToolStripMenuItem});
+            this.automaticTestingToolStripMenuItem,
+            this.manualTestingToolStripMenuItem});
             this.testingToolStripMenuItem.Name = "testingToolStripMenuItem";
             this.testingToolStripMenuItem.Size = new System.Drawing.Size(65, 23);
             this.testingToolStripMenuItem.Text = "Testing";
@@ -86,22 +94,23 @@
             // singleSliceToolStripMenuItem
             // 
             this.singleSliceToolStripMenuItem.Name = "singleSliceToolStripMenuItem";
-            this.singleSliceToolStripMenuItem.Size = new System.Drawing.Size(144, 24);
+            this.singleSliceToolStripMenuItem.Size = new System.Drawing.Size(165, 24);
             this.singleSliceToolStripMenuItem.Text = "Single Slice";
             this.singleSliceToolStripMenuItem.Click += new System.EventHandler(this.singleSliceToolStripMenuItem_Click);
             // 
             // tripleSliceToolStripMenuItem
             // 
             this.tripleSliceToolStripMenuItem.Name = "tripleSliceToolStripMenuItem";
-            this.tripleSliceToolStripMenuItem.Size = new System.Drawing.Size(144, 24);
+            this.tripleSliceToolStripMenuItem.Size = new System.Drawing.Size(165, 24);
             this.tripleSliceToolStripMenuItem.Text = "Triple Slice";
+            this.tripleSliceToolStripMenuItem.Click += new System.EventHandler(this.tripleSliceToolStripMenuItem_Click);
             // 
             // progressBar
             // 
             this.progressBar.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.progressBar.Location = new System.Drawing.Point(0, 447);
+            this.progressBar.Location = new System.Drawing.Point(0, 423);
             this.progressBar.Name = "progressBar";
-            this.progressBar.Size = new System.Drawing.Size(654, 17);
+            this.progressBar.Size = new System.Drawing.Size(745, 17);
             this.progressBar.TabIndex = 1;
             // 
             // statusLabel
@@ -109,25 +118,79 @@
             this.statusLabel.AutoSize = true;
             this.statusLabel.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.statusLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.12727F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.statusLabel.Location = new System.Drawing.Point(0, 427);
+            this.statusLabel.Location = new System.Drawing.Point(0, 403);
             this.statusLabel.Name = "statusLabel";
             this.statusLabel.Size = new System.Drawing.Size(43, 20);
             this.statusLabel.TabIndex = 2;
             this.statusLabel.Text = "Idle..";
             // 
-            // Form1
+            // flowPanel
+            // 
+            this.flowPanel.AutoScroll = true;
+            this.flowPanel.Dock = System.Windows.Forms.DockStyle.Left;
+            this.flowPanel.Location = new System.Drawing.Point(0, 27);
+            this.flowPanel.Name = "flowPanel";
+            this.flowPanel.Size = new System.Drawing.Size(342, 376);
+            this.flowPanel.TabIndex = 3;
+            this.flowPanel.Visible = false;
+            // 
+            // manualTestingToolStripMenuItem
+            // 
+            this.manualTestingToolStripMenuItem.Name = "manualTestingToolStripMenuItem";
+            this.manualTestingToolStripMenuItem.Size = new System.Drawing.Size(189, 24);
+            this.manualTestingToolStripMenuItem.Text = "Manual Testing";
+            this.manualTestingToolStripMenuItem.Click += new System.EventHandler(this.manualTestingToolStripMenuItem_Click);
+            // 
+            // testPanel
+            // 
+            this.testPanel.Controls.Add(this.resLabel);
+            this.testPanel.Controls.Add(this.testPb);
+            this.testPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.testPanel.Location = new System.Drawing.Point(342, 27);
+            this.testPanel.Name = "testPanel";
+            this.testPanel.Size = new System.Drawing.Size(403, 376);
+            this.testPanel.TabIndex = 4;
+            this.testPanel.Visible = false;
+            // 
+            // testPb
+            // 
+            this.testPb.Dock = System.Windows.Forms.DockStyle.Top;
+            this.testPb.Location = new System.Drawing.Point(0, 0);
+            this.testPb.Name = "testPb";
+            this.testPb.Size = new System.Drawing.Size(403, 349);
+            this.testPb.TabIndex = 0;
+            this.testPb.TabStop = false;
+            // 
+            // resLabel
+            // 
+            this.resLabel.AutoSize = true;
+            this.resLabel.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.resLabel.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.resLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.78182F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.resLabel.Location = new System.Drawing.Point(0, 352);
+            this.resLabel.Name = "resLabel";
+            this.resLabel.Size = new System.Drawing.Size(133, 24);
+            this.resLabel.TabIndex = 1;
+            this.resLabel.Text = "Ready To Test";
+            // 
+            // AgeEstimator
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(654, 464);
+            this.ClientSize = new System.Drawing.Size(745, 440);
+            this.Controls.Add(this.testPanel);
+            this.Controls.Add(this.flowPanel);
             this.Controls.Add(this.statusLabel);
             this.Controls.Add(this.progressBar);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
-            this.Name = "Form1";
-            this.Text = "Form1";
+            this.Name = "AgeEstimator";
+            this.Text = "AgeEstimator";
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
+            this.testPanel.ResumeLayout(false);
+            this.testPanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.testPb)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -144,6 +207,11 @@
         private System.Windows.Forms.ToolStripMenuItem tripleSliceToolStripMenuItem;
         private System.Windows.Forms.ProgressBar progressBar;
         private System.Windows.Forms.Label statusLabel;
+        private System.Windows.Forms.FlowLayoutPanel flowPanel;
+        private System.Windows.Forms.ToolStripMenuItem manualTestingToolStripMenuItem;
+        private System.Windows.Forms.Panel testPanel;
+        private System.Windows.Forms.Label resLabel;
+        private System.Windows.Forms.PictureBox testPb;
 
     }
 }
