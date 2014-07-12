@@ -30,7 +30,7 @@ namespace AgeEstimation
 
         private void ResetEigenFaces()
         {
-            m_eigenFace = new EigenFaceRecognizer(120, double.PositiveInfinity);
+            m_eigenFace = new EigenFaceRecognizer(100, double.PositiveInfinity);
         }
 
         void ProgressMadeEventHandler()
@@ -107,7 +107,7 @@ namespace AgeEstimation
             menuStrip1.Enabled = false;
             flowPanel.Visible = testPanel.Visible = false;
 
-            int numOfIterations = 3;
+            int numOfIterations = 5;
             double avgError = 0.0;
 
             for (int i = 0; i < numOfIterations; i++)

@@ -35,13 +35,14 @@
             this.automaticTestingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.singleSliceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tripleSliceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.manualTestingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.configureToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.progressBar = new System.Windows.Forms.ProgressBar();
             this.statusLabel = new System.Windows.Forms.Label();
             this.flowPanel = new System.Windows.Forms.FlowLayoutPanel();
-            this.manualTestingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.testPanel = new System.Windows.Forms.Panel();
-            this.testPb = new System.Windows.Forms.PictureBox();
             this.resLabel = new System.Windows.Forms.Label();
+            this.testPb = new System.Windows.Forms.PictureBox();
             this.menuStrip1.SuspendLayout();
             this.testPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.testPb)).BeginInit();
@@ -51,7 +52,8 @@
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.fileToolStripMenuItem,
-            this.testingToolStripMenuItem});
+            this.testingToolStripMenuItem,
+            this.configureToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(808, 27);
@@ -69,7 +71,7 @@
             // loadDataSetToolStripMenuItem
             // 
             this.loadDataSetToolStripMenuItem.Name = "loadDataSetToolStripMenuItem";
-            this.loadDataSetToolStripMenuItem.Size = new System.Drawing.Size(165, 24);
+            this.loadDataSetToolStripMenuItem.Size = new System.Drawing.Size(160, 24);
             this.loadDataSetToolStripMenuItem.Text = "Load DataSet";
             this.loadDataSetToolStripMenuItem.Click += new System.EventHandler(this.loadDataSetToolStripMenuItem_Click);
             // 
@@ -94,16 +96,28 @@
             // singleSliceToolStripMenuItem
             // 
             this.singleSliceToolStripMenuItem.Name = "singleSliceToolStripMenuItem";
-            this.singleSliceToolStripMenuItem.Size = new System.Drawing.Size(165, 24);
-            this.singleSliceToolStripMenuItem.Text = "Single Slice";
+            this.singleSliceToolStripMenuItem.Size = new System.Drawing.Size(190, 24);
+            this.singleSliceToolStripMenuItem.Text = "Single Iteration";
             this.singleSliceToolStripMenuItem.Click += new System.EventHandler(this.singleSliceToolStripMenuItem_Click);
             // 
             // tripleSliceToolStripMenuItem
             // 
             this.tripleSliceToolStripMenuItem.Name = "tripleSliceToolStripMenuItem";
-            this.tripleSliceToolStripMenuItem.Size = new System.Drawing.Size(165, 24);
-            this.tripleSliceToolStripMenuItem.Text = "Triple Slice";
+            this.tripleSliceToolStripMenuItem.Size = new System.Drawing.Size(190, 24);
+            this.tripleSliceToolStripMenuItem.Text = "Multiple Iterations";
             this.tripleSliceToolStripMenuItem.Click += new System.EventHandler(this.tripleSliceToolStripMenuItem_Click);
+            // 
+            // manualTestingToolStripMenuItem
+            // 
+            this.manualTestingToolStripMenuItem.Name = "manualTestingToolStripMenuItem";
+            this.manualTestingToolStripMenuItem.Size = new System.Drawing.Size(189, 24);
+            this.manualTestingToolStripMenuItem.Text = "Manual Testing";
+            this.manualTestingToolStripMenuItem.Click += new System.EventHandler(this.manualTestingToolStripMenuItem_Click);
+            // 
+            // configureToolStripMenuItem
+            // 
+            this.configureToolStripMenuItem.Name = "configureToolStripMenuItem";
+            this.configureToolStripMenuItem.Size = new System.Drawing.Size(12, 23);
             // 
             // progressBar
             // 
@@ -134,13 +148,6 @@
             this.flowPanel.TabIndex = 3;
             this.flowPanel.Visible = false;
             // 
-            // manualTestingToolStripMenuItem
-            // 
-            this.manualTestingToolStripMenuItem.Name = "manualTestingToolStripMenuItem";
-            this.manualTestingToolStripMenuItem.Size = new System.Drawing.Size(189, 24);
-            this.manualTestingToolStripMenuItem.Text = "Manual Testing";
-            this.manualTestingToolStripMenuItem.Click += new System.EventHandler(this.manualTestingToolStripMenuItem_Click);
-            // 
             // testPanel
             // 
             this.testPanel.Controls.Add(this.resLabel);
@@ -151,15 +158,6 @@
             this.testPanel.Size = new System.Drawing.Size(466, 396);
             this.testPanel.TabIndex = 4;
             this.testPanel.Visible = false;
-            // 
-            // testPb
-            // 
-            this.testPb.Dock = System.Windows.Forms.DockStyle.Top;
-            this.testPb.Location = new System.Drawing.Point(0, 0);
-            this.testPb.Name = "testPb";
-            this.testPb.Size = new System.Drawing.Size(466, 349);
-            this.testPb.TabIndex = 0;
-            this.testPb.TabStop = false;
             // 
             // resLabel
             // 
@@ -172,6 +170,15 @@
             this.resLabel.Size = new System.Drawing.Size(133, 24);
             this.resLabel.TabIndex = 1;
             this.resLabel.Text = "Ready To Test";
+            // 
+            // testPb
+            // 
+            this.testPb.Dock = System.Windows.Forms.DockStyle.Top;
+            this.testPb.Location = new System.Drawing.Point(0, 0);
+            this.testPb.Name = "testPb";
+            this.testPb.Size = new System.Drawing.Size(466, 349);
+            this.testPb.TabIndex = 0;
+            this.testPb.TabStop = false;
             // 
             // AgeEstimator
             // 
@@ -212,6 +219,7 @@
         private System.Windows.Forms.Panel testPanel;
         private System.Windows.Forms.Label resLabel;
         private System.Windows.Forms.PictureBox testPb;
+        private System.Windows.Forms.ToolStripMenuItem configureToolStripMenuItem;
 
     }
 }

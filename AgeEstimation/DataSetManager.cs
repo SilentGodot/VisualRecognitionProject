@@ -157,7 +157,7 @@ namespace AgeEstimation
             m_trainingImages.AddRange(m_testImages);
             m_testImages.Clear();
 
-            int numOfTestImg = (int)Math.Round((double)(m_trainingImages.Count) / (double)slicePrecent);
+            int numOfTestImg = (int)Math.Round((double)(m_trainingImages.Count) * ((double)slicePrecent) / 100.0);
 
             // randomize orger and get the first few to testing lists
             m_trainingImages.Shuffle();
