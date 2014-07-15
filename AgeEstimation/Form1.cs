@@ -18,9 +18,12 @@ namespace AgeEstimation
     {
         DataSetManager m_dtManager;
         EigenFaceRecognizer m_eigenFace;
+        ConfigForm m_cfgForm;
         public AgeEstimator()
         {
             InitializeComponent();
+
+            m_cfgForm = new ConfigForm();
 
             m_dtManager = new DataSetManager(@"..\..\DataSet");
             m_dtManager.ImageFileProccessedEvent += ProgressMadeEventHandler;
@@ -30,7 +33,7 @@ namespace AgeEstimation
 
         private void ResetEigenFaces()
         {
-            m_eigenFace = new EigenFaceRecognizer(100, double.PositiveInfinity);
+            m_eigenFace = new EigenFaceRecognizer(Properties.Settings.Default.EigenfacesComponents, double.PositiveInfinity);
         }
 
         void ProgressMadeEventHandler()
@@ -75,8 +78,8 @@ namespace AgeEstimation
 
         private Task<double> AutoTestSlice()
         {
-            ResetEigenFaces();
-            m_dtManager.RandomizeTestSlice();
+            EigenFaceRecognizer eigenFaces = new EigenFaceRecognizer(Properties.Settings.Default.EigenfacesComponents, double.PositiveInfinity);
+            m_dtManager.RandomizeTestSlice(Properties.Settings.Default.TestingCutSize);
             int numOfTestImg = m_dtManager.TestImageList.Count;
             progressBar.Maximum = numOfTestImg;
             progressBar.Value = 0;
@@ -84,14 +87,14 @@ namespace AgeEstimation
 
             return Task.Run(() =>
             {
-                m_eigenFace.Train(m_dtManager.TrainingImages.ToArray(), m_dtManager.TrainingLabels.ToArray());
+                eigenFaces.Train(m_dtManager.TrainingImages.ToArray(), m_dtManager.TrainingLabels.ToArray());
 
                 int numOfFails = 0;
 
                 foreach (var testDat in m_dtManager.TestImageList)
                 {
                     ProgressMadeEventHandler();
-                    var res = m_eigenFace.Predict(testDat.Item1);
+                    var res = eigenFaces.Predict(testDat.Item1);
                     if (res.Label != testDat.Item2)
                         ++numOfFails;
                 }
@@ -107,7 +110,7 @@ namespace AgeEstimation
             menuStrip1.Enabled = false;
             flowPanel.Visible = testPanel.Visible = false;
 
-            int numOfIterations = 5;
+            int numOfIterations = Properties.Settings.Default.TestingIterations;
             double avgError = 0.0;
 
             for (int i = 0; i < numOfIterations; i++)
@@ -133,7 +136,7 @@ namespace AgeEstimation
         {
             statusLabel.Text = "Setting Up Manual Test environment...";
             ResetEigenFaces();
-            m_dtManager.RandomizeTestSlice();
+            m_dtManager.RandomizeTestSlice(Properties.Settings.Default.TestingCutSize);
 
             await Task.Run(() =>
             {
@@ -168,6 +171,12 @@ namespace AgeEstimation
                 resLabel.ForeColor = Color.DarkRed;
 
             resLabel.Text = m_dtManager.GetLabel(result.Label);
+        }
+
+        private void configToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (m_cfgForm.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+                statusLabel.Text = "Some Configuration changes may require the data set to be reloaded.";
         }
     }
 }

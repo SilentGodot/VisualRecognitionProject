@@ -28,7 +28,8 @@ namespace AgeEstimation
             Rectangle face_rect = facesDetected[0];
             //crop the first face found
             // resizing to 100x100 gives better performance
-            return gray.Copy(face_rect).Resize(120,120, Emgu.CV.CvEnum.INTER.CV_INTER_CUBIC);
+            int faceSize = Properties.Settings.Default.EigenFaceSize;
+            return gray.Copy(face_rect).Resize(faceSize, faceSize, Emgu.CV.CvEnum.INTER.CV_INTER_CUBIC);
         }
     }
 }

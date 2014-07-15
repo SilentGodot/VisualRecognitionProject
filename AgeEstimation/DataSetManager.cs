@@ -115,6 +115,7 @@ namespace AgeEstimation
         public void LoadFromDataDir()
         {
             m_trainingImages.Clear();
+            m_testImages.Clear();
             
             DirectoryInfo dataDir = new DirectoryInfo(DirectoryPath);
             foreach (DirectoryInfo currDir in dataDir.GetDirectories())
@@ -142,7 +143,10 @@ namespace AgeEstimation
                     {
                         continue; //Fix face dtection failing
                     }
-                    String fullLabel = ageLabel + " " + genderLabel;
+                    String fullLabel = ageLabel;
+                    
+                    if (Properties.Settings.Default.EstimateGender)
+                        fullLabel+= " " + genderLabel;
 
                     int labelIndex = LabelToInt(fullLabel);
 

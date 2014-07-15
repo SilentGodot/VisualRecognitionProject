@@ -36,7 +36,7 @@
             this.singleSliceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tripleSliceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.manualTestingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.configureToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.configToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.progressBar = new System.Windows.Forms.ProgressBar();
             this.statusLabel = new System.Windows.Forms.Label();
             this.flowPanel = new System.Windows.Forms.FlowLayoutPanel();
@@ -53,7 +53,7 @@
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.fileToolStripMenuItem,
             this.testingToolStripMenuItem,
-            this.configureToolStripMenuItem});
+            this.configToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(808, 27);
@@ -114,10 +114,12 @@
             this.manualTestingToolStripMenuItem.Text = "Manual Testing";
             this.manualTestingToolStripMenuItem.Click += new System.EventHandler(this.manualTestingToolStripMenuItem_Click);
             // 
-            // configureToolStripMenuItem
+            // configToolStripMenuItem
             // 
-            this.configureToolStripMenuItem.Name = "configureToolStripMenuItem";
-            this.configureToolStripMenuItem.Size = new System.Drawing.Size(12, 23);
+            this.configToolStripMenuItem.Name = "configToolStripMenuItem";
+            this.configToolStripMenuItem.Size = new System.Drawing.Size(61, 23);
+            this.configToolStripMenuItem.Text = "Config";
+            this.configToolStripMenuItem.Click += new System.EventHandler(this.configToolStripMenuItem_Click);
             // 
             // progressBar
             // 
@@ -190,6 +192,7 @@
             this.Controls.Add(this.statusLabel);
             this.Controls.Add(this.progressBar);
             this.Controls.Add(this.menuStrip1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "AgeEstimator";
             this.Text = "AgeEstimator";
@@ -219,7 +222,7 @@
         private System.Windows.Forms.Panel testPanel;
         private System.Windows.Forms.Label resLabel;
         private System.Windows.Forms.PictureBox testPb;
-        private System.Windows.Forms.ToolStripMenuItem configureToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem configToolStripMenuItem;
 
     }
 }
