@@ -6,16 +6,16 @@
       <Value Profile="(Default)">False</Value>
     </Setting>
     <Setting Name="EigenFaceSize" Type="System.Int32" Scope="User">
-      <Value Profile="(Default)">120</Value>
+      <Value Profile="(Default)">100</Value>
     </Setting>
     <Setting Name="EigenfacesComponents" Type="System.Int32" Scope="User">
       <Value Profile="(Default)">100</Value>
     </Setting>
     <Setting Name="TestingCutSize" Type="System.Single" Scope="User">
-      <Value Profile="(Default)">15</Value>
+      <Value Profile="(Default)">5</Value>
     </Setting>
     <Setting Name="TestingIterations" Type="System.Int32" Scope="User">
-      <Value Profile="(Default)">5</Value>
+      <Value Profile="(Default)">10</Value>
     </Setting>
   </Settings>
 </SettingsFile>

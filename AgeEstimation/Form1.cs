@@ -68,6 +68,12 @@ namespace AgeEstimation
 
         private async void singleSliceToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            if (m_dtManager.TrainingImages.Count == 0)
+            {
+                statusLabel.Text = "No data loaded";
+                return;
+            }
+
             menuStrip1.Enabled = false;
             flowPanel.Visible = testPanel.Visible = false;
 
@@ -107,6 +113,12 @@ namespace AgeEstimation
 
         private async void tripleSliceToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            if (m_dtManager.TrainingImages.Count == 0)
+            {
+                statusLabel.Text = "No data loaded";
+                return;
+            }
+
             menuStrip1.Enabled = false;
             flowPanel.Visible = testPanel.Visible = false;
 
@@ -126,6 +138,12 @@ namespace AgeEstimation
 
         private async void manualTestingToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            if (m_dtManager.TrainingImages.Count == 0)
+            {
+                statusLabel.Text = "No data loaded";
+                return;
+            }
+
             menuStrip1.Enabled = false;
             await PrepareForManualTesting();
             flowPanel.Visible = testPanel.Visible = true;
@@ -175,7 +193,7 @@ namespace AgeEstimation
 
         private void configToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (m_cfgForm.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            if (m_cfgForm.ShowDialog(this) == System.Windows.Forms.DialogResult.OK)
                 statusLabel.Text = "Some Configuration changes may require the data set to be reloaded.";
         }
     }

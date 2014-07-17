@@ -37,7 +37,7 @@ namespace AgeEstimation.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("120")]
+        [global::System.Configuration.DefaultSettingValueAttribute("100")]
         public int EigenFaceSize {
             get {
                 return ((int)(this["EigenFaceSize"]));
@@ -61,7 +61,7 @@ namespace AgeEstimation.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("15")]
+        [global::System.Configuration.DefaultSettingValueAttribute("5")]
         public float TestingCutSize {
             get {
                 return ((float)(this["TestingCutSize"]));
@@ -73,7 +73,7 @@ namespace AgeEstimation.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("5")]
+        [global::System.Configuration.DefaultSettingValueAttribute("10")]
         public int TestingIterations {
             get {
                 return ((int)(this["TestingIterations"]));
