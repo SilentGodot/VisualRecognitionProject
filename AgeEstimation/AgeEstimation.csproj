@@ -65,19 +65,19 @@
     </Compile>
     <Compile Include="DataSetManager.cs" />
     <Compile Include="FaceDetector.cs" />
-    <Compile Include="Form1.cs">
+    <Compile Include="AgeEstimatorForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="AgeEstimatorForm.Designer.cs">
+      <DependentUpon>AgeEstimatorForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="ConfigForm.resx">
       <DependentUpon>ConfigForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <EmbeddedResource Include="AgeEstimatorForm.resx">
+      <DependentUpon>AgeEstimatorForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -103,7 +103,6 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
-    <Content Include="config\haarcascade_eye.xml" />
     <Content Include="config\haarcascade_frontalface_default.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -14,12 +14,12 @@ using Emgu.CV.Structure;
 
 namespace AgeEstimation
 {
-    public partial class AgeEstimator : Form
+    public partial class AgeEstimatorForm : Form
     {
         DataSetManager m_dtManager;
         EigenFaceRecognizer m_eigenFace;
         ConfigForm m_cfgForm;
-        public AgeEstimator()
+        public AgeEstimatorForm()
         {
             InitializeComponent();
 
@@ -89,7 +89,7 @@ namespace AgeEstimation
             int numOfTestImg = m_dtManager.TestImageList.Count;
             progressBar.Maximum = numOfTestImg;
             progressBar.Value = 0;
-            statusLabel.Text = "Running Automatic Test Slice...";
+            statusLabel.Text = "Running Automatic Test...";
 
             return Task.Run(() =>
             {
@@ -144,6 +144,7 @@ namespace AgeEstimation
                 return;
             }
 
+            flowPanel.Controls.Clear();
             menuStrip1.Enabled = false;
             await PrepareForManualTesting();
             flowPanel.Visible = testPanel.Visible = true;

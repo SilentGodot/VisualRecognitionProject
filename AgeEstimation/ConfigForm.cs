@@ -19,11 +19,17 @@ namespace AgeEstimation
 
         private void ConfigForm_Load(object sender, EventArgs e)
         {
+            LoadValuesFromProp();
+        }
+
+        private void LoadValuesFromProp()
+        {
             txtFaceSize.Text = Properties.Settings.Default.EigenFaceSize.ToString();
             txtComponents.Text = Properties.Settings.Default.EigenfacesComponents.ToString();
             txtCutPrecent.Text = Properties.Settings.Default.TestingCutSize.ToString("F1");
             txtIterations.Text = Properties.Settings.Default.TestingIterations.ToString();
             cbGender.Checked = Properties.Settings.Default.EstimateGender;
+            cbCutTesting.Checked = Properties.Settings.Default.UseTestingCut;
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -38,9 +44,16 @@ namespace AgeEstimation
             Properties.Settings.Default.TestingCutSize = float.Parse(txtCutPrecent.Text);
             Properties.Settings.Default.TestingIterations = int.Parse(txtIterations.Text);
             Properties.Settings.Default.EstimateGender = cbGender.Checked;
+            Properties.Settings.Default.UseTestingCut = cbCutTesting.Checked;
             Properties.Settings.Default.Save();
 
             this.DialogResult = System.Windows.Forms.DialogResult.OK;
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            Properties.Settings.Default.Reset();
+            LoadValuesFromProp();
         }
     }
 }

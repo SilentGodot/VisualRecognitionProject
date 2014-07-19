@@ -82,5 +82,17 @@ namespace AgeEstimation.Properties {
                 this["TestingIterations"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool UseTestingCut {
+            get {
+                return ((bool)(this["UseTestingCut"]));
+            }
+            set {
+                this["UseTestingCut"] = value;
+            }
+        }
     }
 }

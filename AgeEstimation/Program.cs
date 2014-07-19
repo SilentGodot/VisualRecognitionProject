@@ -16,7 +16,7 @@ namespace AgeEstimation
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new AgeEstimator());
+            Application.Run(new AgeEstimatorForm());
         }
 
     }

@@ -1,6 +1,6 @@
 ﻿namespace AgeEstimation
 {
-    partial class AgeEstimator
+    partial class AgeEstimatorForm
     {
         /// <summary>
         /// Required designer variable.
@@ -71,7 +71,8 @@
             // loadDataSetToolStripMenuItem
             // 
             this.loadDataSetToolStripMenuItem.Name = "loadDataSetToolStripMenuItem";
-            this.loadDataSetToolStripMenuItem.Size = new System.Drawing.Size(160, 24);
+            this.loadDataSetToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F1;
+            this.loadDataSetToolStripMenuItem.Size = new System.Drawing.Size(184, 24);
             this.loadDataSetToolStripMenuItem.Text = "Load DataSet";
             this.loadDataSetToolStripMenuItem.Click += new System.EventHandler(this.loadDataSetToolStripMenuItem_Click);
             // 
@@ -90,33 +91,37 @@
             this.singleSliceToolStripMenuItem,
             this.tripleSliceToolStripMenuItem});
             this.automaticTestingToolStripMenuItem.Name = "automaticTestingToolStripMenuItem";
-            this.automaticTestingToolStripMenuItem.Size = new System.Drawing.Size(189, 24);
+            this.automaticTestingToolStripMenuItem.Size = new System.Drawing.Size(196, 24);
             this.automaticTestingToolStripMenuItem.Text = "Automatic Testing";
             // 
             // singleSliceToolStripMenuItem
             // 
             this.singleSliceToolStripMenuItem.Name = "singleSliceToolStripMenuItem";
-            this.singleSliceToolStripMenuItem.Size = new System.Drawing.Size(190, 24);
+            this.singleSliceToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F2;
+            this.singleSliceToolStripMenuItem.Size = new System.Drawing.Size(214, 24);
             this.singleSliceToolStripMenuItem.Text = "Single Iteration";
             this.singleSliceToolStripMenuItem.Click += new System.EventHandler(this.singleSliceToolStripMenuItem_Click);
             // 
             // tripleSliceToolStripMenuItem
             // 
             this.tripleSliceToolStripMenuItem.Name = "tripleSliceToolStripMenuItem";
-            this.tripleSliceToolStripMenuItem.Size = new System.Drawing.Size(190, 24);
+            this.tripleSliceToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F3;
+            this.tripleSliceToolStripMenuItem.Size = new System.Drawing.Size(214, 24);
             this.tripleSliceToolStripMenuItem.Text = "Multiple Iterations";
             this.tripleSliceToolStripMenuItem.Click += new System.EventHandler(this.tripleSliceToolStripMenuItem_Click);
             // 
             // manualTestingToolStripMenuItem
             // 
             this.manualTestingToolStripMenuItem.Name = "manualTestingToolStripMenuItem";
-            this.manualTestingToolStripMenuItem.Size = new System.Drawing.Size(189, 24);
+            this.manualTestingToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F4;
+            this.manualTestingToolStripMenuItem.Size = new System.Drawing.Size(196, 24);
             this.manualTestingToolStripMenuItem.Text = "Manual Testing";
             this.manualTestingToolStripMenuItem.Click += new System.EventHandler(this.manualTestingToolStripMenuItem_Click);
             // 
             // configToolStripMenuItem
             // 
             this.configToolStripMenuItem.Name = "configToolStripMenuItem";
+            this.configToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F5;
             this.configToolStripMenuItem.Size = new System.Drawing.Size(61, 23);
             this.configToolStripMenuItem.Text = "Config";
             this.configToolStripMenuItem.Click += new System.EventHandler(this.configToolStripMenuItem_Click);
@@ -182,7 +187,7 @@
             this.testPb.TabIndex = 0;
             this.testPb.TabStop = false;
             // 
-            // AgeEstimator
+            // AgeEstimatorForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -194,7 +199,7 @@
             this.Controls.Add(this.menuStrip1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MainMenuStrip = this.menuStrip1;
-            this.Name = "AgeEstimator";
+            this.Name = "AgeEstimatorForm";
             this.Text = "AgeEstimator";
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();

@@ -31,7 +31,7 @@ namespace AgeEstimation
     /// <summary>
     /// Class that manages the image data set.
     /// Loads the image files and runs a face detection using a HaarCascade to preprocess for EigenFaces.
-    /// Fuctionality to randomize Test slicr from main data set
+    /// Fuctionality to randomize Test slice from main data set
     /// </summary>
     class DataSetManager
     {
@@ -141,7 +141,7 @@ namespace AgeEstimation
                     grayFace = FaceDetector.CropGrayFace(rgbImg);
                     if (grayFace == null)
                     {
-                        continue; //Fix face dtection failing
+                        continue;
                     }
                     String fullLabel = ageLabel;
                     
@@ -156,17 +156,20 @@ namespace AgeEstimation
             }
         }
 
-        public void RandomizeTestSlice(float slicePrecent = 15.0f)
+        public void RandomizeTestSlice(float slicePrecent)
         {
-            m_trainingImages.AddRange(m_testImages);
+            if (Properties.Settings.Default.UseTestingCut)
+                m_trainingImages.AddRange(m_testImages);
             m_testImages.Clear();
 
             int numOfTestImg = (int)Math.Round((double)(m_trainingImages.Count) * ((double)slicePrecent) / 100.0);
 
-            // randomize orger and get the first few to testing lists
+            // randomize order and get the first few to testing lists
             m_trainingImages.Shuffle();
             m_testImages.AddRange(m_trainingImages.GetRange(0, numOfTestImg));
-            m_trainingImages.RemoveRange(0, numOfTestImg);
+
+            if (Properties.Settings.Default.UseTestingCut)
+                m_trainingImages.RemoveRange(0, numOfTestImg);
         }
 
 

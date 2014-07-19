@@ -34,13 +34,15 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.cbCutTesting = new System.Windows.Forms.CheckBox();
             this.cbGender = new System.Windows.Forms.CheckBox();
+            this.txtIterations = new System.Windows.Forms.TextBox();
             this.txtCutPrecent = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
-            this.label4 = new System.Windows.Forms.Label();
-            this.txtIterations = new System.Windows.Forms.TextBox();
+            this.button3 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -92,6 +94,7 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.cbCutTesting);
             this.groupBox2.Controls.Add(this.cbGender);
             this.groupBox2.Controls.Add(this.txtIterations);
             this.groupBox2.Controls.Add(this.txtCutPrecent);
@@ -99,10 +102,20 @@
             this.groupBox2.Controls.Add(this.label3);
             this.groupBox2.Location = new System.Drawing.Point(13, 99);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(244, 113);
+            this.groupBox2.Size = new System.Drawing.Size(244, 131);
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Algorithm Settings";
+            // 
+            // cbCutTesting
+            // 
+            this.cbCutTesting.AutoSize = true;
+            this.cbCutTesting.Location = new System.Drawing.Point(6, 107);
+            this.cbCutTesting.Name = "cbCutTesting";
+            this.cbCutTesting.Size = new System.Drawing.Size(216, 17);
+            this.cbCutTesting.TabIndex = 3;
+            this.cbCutTesting.Text = "Remove Testing Cut From Training Data";
+            this.cbCutTesting.UseVisualStyleBackColor = true;
             // 
             // cbGender
             // 
@@ -114,12 +127,28 @@
             this.cbGender.Text = "Estimate Gender";
             this.cbGender.UseVisualStyleBackColor = true;
             // 
+            // txtIterations
+            // 
+            this.txtIterations.Location = new System.Drawing.Point(132, 51);
+            this.txtIterations.Name = "txtIterations";
+            this.txtIterations.Size = new System.Drawing.Size(100, 20);
+            this.txtIterations.TabIndex = 1;
+            // 
             // txtCutPrecent
             // 
             this.txtCutPrecent.Location = new System.Drawing.Point(132, 19);
             this.txtCutPrecent.Name = "txtCutPrecent";
             this.txtCutPrecent.Size = new System.Drawing.Size(100, 20);
             this.txtCutPrecent.TabIndex = 1;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(5, 54);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(88, 13);
+            this.label4.TabIndex = 1;
+            this.label4.Text = "Testing Iterations";
             // 
             // label3
             // 
@@ -132,7 +161,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(23, 218);
+            this.button1.Location = new System.Drawing.Point(23, 247);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(100, 23);
             this.button1.TabIndex = 2;
@@ -142,7 +171,8 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(145, 218);
+            this.button2.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.button2.Location = new System.Drawing.Point(145, 247);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(100, 23);
             this.button2.TabIndex = 2;
@@ -150,28 +180,25 @@
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
-            // label4
+            // button3
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(5, 54);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(88, 13);
-            this.label4.TabIndex = 1;
-            this.label4.Text = "Testing Iterations";
-            // 
-            // txtIterations
-            // 
-            this.txtIterations.Location = new System.Drawing.Point(132, 51);
-            this.txtIterations.Name = "txtIterations";
-            this.txtIterations.Size = new System.Drawing.Size(100, 20);
-            this.txtIterations.TabIndex = 1;
+            this.button3.Location = new System.Drawing.Point(82, 285);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(100, 23);
+            this.button3.TabIndex = 2;
+            this.button3.Text = "Load Default";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // ConfigForm
             // 
+            this.AcceptButton = this.button1;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
-            this.ClientSize = new System.Drawing.Size(267, 254);
+            this.CancelButton = this.button2;
+            this.ClientSize = new System.Drawing.Size(267, 320);
+            this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.groupBox2);
@@ -203,5 +230,7 @@
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.TextBox txtIterations;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.CheckBox cbCutTesting;
+        private System.Windows.Forms.Button button3;
     }
 }
