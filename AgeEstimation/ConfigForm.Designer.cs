@@ -72,7 +72,7 @@
             this.txtFaceSize.Location = new System.Drawing.Point(132, 17);
             this.txtFaceSize.Name = "txtFaceSize";
             this.txtFaceSize.Size = new System.Drawing.Size(100, 20);
-            this.txtFaceSize.TabIndex = 1;
+            this.txtFaceSize.TabIndex = 0;
             // 
             // label2
             // 
@@ -123,7 +123,7 @@
             this.cbGender.Location = new System.Drawing.Point(6, 84);
             this.cbGender.Name = "cbGender";
             this.cbGender.Size = new System.Drawing.Size(104, 17);
-            this.cbGender.TabIndex = 3;
+            this.cbGender.TabIndex = 2;
             this.cbGender.Text = "Estimate Gender";
             this.cbGender.UseVisualStyleBackColor = true;
             // 
@@ -139,7 +139,7 @@
             this.txtCutPrecent.Location = new System.Drawing.Point(132, 19);
             this.txtCutPrecent.Name = "txtCutPrecent";
             this.txtCutPrecent.Size = new System.Drawing.Size(100, 20);
-            this.txtCutPrecent.TabIndex = 1;
+            this.txtCutPrecent.TabIndex = 0;
             // 
             // label4
             // 
@@ -175,7 +175,7 @@
             this.button2.Location = new System.Drawing.Point(145, 247);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(100, 23);
-            this.button2.TabIndex = 2;
+            this.button2.TabIndex = 3;
             this.button2.Text = "Cancel";
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
@@ -185,7 +185,7 @@
             this.button3.Location = new System.Drawing.Point(82, 285);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(100, 23);
-            this.button3.TabIndex = 2;
+            this.button3.TabIndex = 4;
             this.button3.Text = "Load Default";
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.button3_Click);
